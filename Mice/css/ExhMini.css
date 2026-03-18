@@ -1,0 +1,421 @@
+.graphic {
+  padding: 3rem 0 0;
+}
+
+.recommend {
+  padding: 20px 0 5rem;
+}
+
+.graphic {
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.graphic .container {
+  width: 100%;
+  height: 241px;
+  display: flex;
+}
+
+.graphic .img_box {
+  width: 40%;
+  height: 241px;
+}
+
+.graphic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.graphic .txt_box {
+  width: 60%;
+  background: #f4f3f3;
+  padding: 0 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.txt_box h1 {
+  font-family: 'Noto Sans TC';
+  font-size: 20px;
+  font-weight: 500;
+  color: #505050;
+  margin-top: 2rem;
+}
+
+.txt_box h1 i {
+  font-size: 15px;
+  display: none;
+}
+
+.txt_box h1 i:first-of-type,
+.img_box h2 i:first-of-type {
+  margin-right: .5rem;
+}
+
+.txt_box h1 i:last-of-type,
+.img_box h2 i:last-of-type {
+  margin-left: .5rem;
+}
+
+.txt_box h1 span {
+  font-size: 20px;
+}
+
+.txt_box>p {
+  color: #505050;
+  font-size: 15px;
+  line-height: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+.txt_box_btn {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+/* .btn_input {
+  display: none;
+} */
+
+.btn_label {
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: #fff;
+  border-radius: 50px;
+  margin-right: .8rem;
+  transition: .5s;
+}
+
+.btn_label:last-of-type {
+  margin-right: 0;
+}
+
+.btn_svg {
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  margin-right: .5rem;
+}
+
+.btn_svg img {
+  width: auto;
+}
+
+.btn_txt {
+  width: 0;
+  overflow: hidden;
+  font-size: 15px;
+  font-weight: bold;
+  white-space: nowrap;
+  padding-left: 0;
+  border-radius: 20px;
+}
+
+.btn_label:hover {
+  width: 200px;
+  transition: .5s;
+}
+
+.btn_label.blog_btn:hover {
+  width: 170px;
+}
+
+.btn_label.podcast_btn:hover .btn_txt {
+  width: 100%;
+  color: #2d4787;
+  padding: 0.5rem;
+}
+
+.btn_label.blog_btn:hover .btn_txt {
+  width: 100%;
+  color: #8c001a;
+  padding: 0.5rem;
+}
+
+.podcast_btn:hover .btn_svg {
+  cursor: pointer;
+  content: url(../images/podcast-2.svg);
+}
+
+.blog_btn:hover .btn_svg {
+  cursor: pointer;
+  content: url(../images/blog-2.svg);
+}
+
+h3.main-title {
+  border-bottom: none;
+  position: relative;
+}
+
+.recommend h3.main-title::before {
+  content: "";
+  background: url(../images/20_exhTitle_icon01.png) no-repeat center center;
+  width: 8px;
+  height: 30px;
+  position: absolute;
+  bottom: -23px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-size: contain;
+}
+
+.recommend_box {
+  display: flex;
+  align-items: center;
+  padding-top: 3rem;
+}
+
+.recommend_box .box {
+  width: 24%;
+  margin: 0 0.66666%;
+  background: #000;
+}
+
+.box .txt {
+  height: 90px;
+  background: #f4f3f3;
+  padding: 1rem 1.5rem;
+}
+
+.box .txt.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box .txt .border {
+  font-size: 16px;
+  border: 1px solid #505050;
+  border-radius: 3px;
+  display: inline-block;
+  padding: .5rem 1rem;
+}
+
+.recommend_box .box .bg_photo {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  display: block;
+  transition: .5s;
+}
+
+.recommend_box .box:nth-child(4n+1) {
+  margin-left: 0;
+}
+
+.recommend_box .box:nth-child(4n+0) {
+  margin-right: 0;
+}
+
+.box .img_box {
+  overflow: hidden;
+  position: relative;
+}
+
+.box .img_box.border {
+  position: relative;
+}
+
+.box .img_box.border_bottom::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 7px;
+  background: #ad7f3d;
+  z-index: 5;
+}
+
+.img_box h2 {
+  min-width: 80%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 2rem 0;
+  padding: .4rem .8rem;
+  font-size: 18px;
+  color: #ffff;
+  background: #ad7f3d;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img_box h2 i {
+  font-size: 15px;
+}
+
+.img_txt {
+  min-width: 80%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.img_txt.luxetravel p {
+  line-height: 1.6rem;
+}
+
+.img_txt hr {
+  margin: 1rem 0;
+}
+
+.recommend_box .box:hover .bg_photo {
+  opacity: 0.4;
+  transform: scale(1.2);
+  transition: .5s;
+}
+
+.recommend_box .box:hover .img_txt {
+  display: block;
+  color: #fff;
+}
+
+.recommend_box .box:hover .txt .border {
+  border: 1px solid #ad7f3d;
+  color: #ad7f3d;
+  background: #fff;
+}
+
+.img_txt .luxetravel_txt_a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bolder;
+  line-height: 1.5rem;
+}
+
+.img_txt .luxetravel_txt_b {
+  font-size: 14px;
+  font-weight: bolder;
+  line-height: 1.5rem;
+  text-align: justify;
+}
+
+.else_txt p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bolder;
+  line-height: 1.8rem;
+}
+
+.img_title {
+  width: 118px;
+  height: 57px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.txt .bolder {
+  font-weight: bolder;
+}
+
+.txt .bolder:first-of-type {
+  height: 36px;
+}
+
+.txt .right {
+  text-align: right;
+}
+
+.txt .right span {
+  font-family: 'arial';
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #c10000;
+}
+
+@media (max-width:1300px) {
+  .recommend_box {
+    white-space: nowrap;
+    overflow-x: auto;
+  }
+  .recommend_box .box {
+    min-width: 35%;
+    margin: 0 1rem;
+  }
+  .img_txt {
+    white-space: normal;
+  }
+}
+
+@media (max-width:1000px) {
+  .graphic .img_box,
+  .graphic .txt_box {
+    width: 50%;
+  }
+  .graphic .container,
+  .graphic .img_box {
+    height: auto;
+  }
+  .recommend_box .box {
+    min-width: 40%;
+  }
+}
+
+@media (max-width:800px) {
+  .recommend_box .box {
+    min-width: 50%;
+  }
+}
+
+@media (max-width:700px) {
+  .graphic .container {
+    flex-wrap: wrap;
+    height: auto;
+  }
+  .graphic .img_box,
+  .graphic .txt_box {
+    width: 100%;
+  }
+}
+
+@media (max-width:600px) {
+  .recommend_box .box {
+    min-width: 80%;
+  }
+}
+
+@media (max-width:414px) {
+  .graphic .txt_box {
+    padding: 0 2rem;
+  }
+  .img_txt.luxetravel {
+    top: 60%;
+  }
+}
+
+@media (max-width:375px) {
+  .recommend_box .box .bg_photo {
+    height: 320px;
+  }
+}
+
+@media (max-width:320px) {
+  .img_box h2 {
+    margin: 1.5rem 0;
+  }
+  .img_txt.luxetravel {
+    top: 63%;
+  }
+}

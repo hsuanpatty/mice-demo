@@ -1,0 +1,641 @@
+@charset "UTF-8";
+
+/* CSS Document */
+
+
+/*============== 麵包屑 ==============*/
+
+.Exh-navigate {
+    padding-top: 110px;
+    margin: 20px 0;
+    font-size: .875rem;
+    color: #0c02de;
+}
+
+.Exh-navigate a {
+    text-decoration: underline;
+    color: #000;
+}
+
+.Exh-navigate a:after {
+    content: ">";
+    display: inline-block;
+    margin-left: 6px;
+}
+
+
+/*============== Exhibition_title 大館大標 ==============*/
+
+.Exhibition_title {
+    text-align: center;
+    border-bottom: 5px solid #8c001a;
+}
+
+.Exhibition_title h1 {
+    font-weight: bolder;
+    margin: 8px 0;
+    letter-spacing: .3rem;
+    font-size: 2rem;
+}
+
+
+/*============== Exhibition_filter_head 地區篩選列 ==============*/
+
+#Exhibition_filter_head {
+    width: 90%;
+    max-width: 1150px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    margin: 25px auto;
+    align-items: center;
+}
+
+.Exhibition_filter_title {
+    width: 13%;
+    font-size: 1.5rem;
+    color: #757575;
+    font-weight: bold;
+    line-height: 28px;
+    min-width: 150px;
+}
+
+.Exhibition_otherAreas_link {
+    width: 87%;
+    padding-left: 30px;
+    border-left: 3px solid #acacac;
+}
+
+.Exhibition_otherAreas_link a {
+    font-weight: bold;
+    font-size: .95rem;
+    color: #4e4e4e;
+    letter-spacing: .1rem;
+    overflow: hidden;
+    border: 0.5px solid #959595;
+    border-radius: 15px;
+    padding: 5px 15px;
+    margin: 3px;
+    display: inline-block;
+    transition: .2s;
+}
+
+
+/*.Exhibition_otherAreas_link a:hover{
+    background-color: #e37989;
+    color: #FFF;
+    border: 0.5px solid #e37989;
+}*/
+
+.Exhibition_otherAreas_link a.checked {
+    background-color: #e37989;
+    color: #FFF;
+    border: 0.5px solid #e37989;
+}
+
+.Exhibition_filter_title span {
+    display: block;
+    font-size: 1rem;
+}
+
+
+/*============== Search ==============*/
+
+#main-search {
+    background: #f4f3f3;
+    padding: 20px 0;
+}
+
+ul.search-title {
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 1400px) {
+    ul.search-title {
+        padding: 0;
+    }
+}
+
+ul.search-title li {
+    font-family: 'Noto Sans TC';
+    font-size: 1.125rem;
+    padding: 0 12px;
+    border-right: solid 1px #8c001a;
+}
+
+@media (max-width: 576px) {
+    ul.search-title li {
+        padding: 0 8px;
+    }
+}
+
+@media (max-width: 360px) {
+    ul.search-title li {
+        padding: 0 6px;
+    }
+}
+
+@media (max-width: 320px) {
+    ul.search-title li {
+        padding: 0 2px;
+    }
+}
+
+ul.search-title li:first-of-type {
+    font-family: 'Noto Sans TC';
+    font-weight: bold;
+    font-size: 1.125rem;
+}
+
+ul.search-title li:last-of-type {
+    border-right: none;
+}
+
+ul.search-title li a {
+    display: block;
+    transition: .5s;
+}
+
+ul.search-title li a:hover {
+    color: #8c001a;
+}
+
+
+
+.searchBox-area {
+    width: 30%;
+}
+
+.searchBox-date {
+    width: 35%;
+}
+
+.searchBox-keyword {
+    width: 35%;
+}
+
+.searchBox-selectArea,
+.searchBox-selectCountry {
+    width: calc(50% - 42px);
+}
+
+.go-box,
+.back-box {
+    width: calc(50% - 38px);
+    position: relative;
+    display: inline-block;
+}
+
+.go-box img,
+.back-box img {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: 6px;
+    right: 10px;
+    pointer-events: none;
+}
+
+#flatpickr-go,
+#flatpickr-back {
+    width: 100%;
+}
+
+img.searchBox-area-icon {
+    vertical-align: middle;
+    margin: 0 5px;
+}
+
+#search-tool input {
+    -webkit-appearance: none;
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 0;
+    color: #333;
+    padding: 0 5px;
+    line-height: 28px;
+    height: 28px;
+}
+
+#search-tool select {
+    border: 1px solid #ccc;
+    border-radius: 0;
+    background: url(../images/20_arrow.png) no-repeat scroll 95% center #fff;
+    -webkit-appearance: none;
+    color: #333;
+    padding: 0 5px;
+    height: 28px;
+}
+
+.searchBox-keyword input {
+    width: calc(100% - 181px);
+}
+
+.searchBox-btn {
+    font-size: 1rem;
+    width: 115px;
+    height: 28px;
+    display: inline-block;
+    padding: 0px 0 0 10px;
+    line-height: 26px;
+    margin-left: 10px;
+    border-left: solid 1px #000;
+}
+
+.searchBox-btn a {
+    transition: .5s;
+}
+
+@media (max-width: 768px) {
+    .searchBox-btn a {
+        color: #8c001a;
+    }
+}
+
+.searchBox-btn:hover a {
+    color: #8c001a;
+}
+
+
+/*============== ExhMiniHotSale ==============*/
+
+#ExhSpecialEvent {
+    padding: 20px 0;
+}
+
+#ExhSpecialEvent h3 {
+    color: #000000;
+    position: relative;
+}
+
+h3.main-title {
+    font-size: 1.75rem;
+    font-family: 'Noto Sans TC';
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+#ExhSpecialEvent h3.main-title {
+    margin-top: 20px;
+    position: relative;
+}
+
+#ExhSpecialEvent-owl-carousel {
+    margin-top: 10px;
+}
+
+#ExhSpecialEvent-owl-carousel .owl-nav {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    margin: 0;
+}
+
+#ExhSpecialEvent-owl-carousel .owl-nav .owl-prev {
+    position: absolute;
+    left: -5%;
+}
+
+#ExhSpecialEvent-owl-carousel .owl-nav .owl-next {
+    position: absolute;
+    right: -5%;
+}
+
+#ExhSpecialEvent-owl-carousel .owl-nav .disabled {
+    opacity: 0;
+}
+
+#ExhSpecialEvent-owl-carousel .owl-nav [class*=owl-]:hover,
+#ExhSpecialEvent-owl-carousel .owl-nav [class*=owl-]:focus {
+    background: transparent;
+    outline: none;
+}
+
+figure.Exh-SpecialEvent-box img {
+    transition: .5s;
+}
+
+
+/*hover到會有陰影
+figure.Exh-SpecialEvent-box:hover img{
+    box-shadow: 0 0 5px 2px #bdbdbd;
+}*/
+
+figure.Exh-SpecialEvent-box p {
+    height: 40px;
+    color: #767676;
+    margin: 0;
+    font-weight: bold;
+    font-size: .875rem;
+    line-height: 21px;
+    display: -webkit-box;
+    overflow: hidden;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    padding: 0 10px;
+}
+
+figure.Exh-SpecialEvent-box p:before {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-left-color: #000;
+    margin-left: -10px;
+}
+
+figure.Exh-SpecialEvent-box a {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+
+/*============== Exhibition_filter 大館行程 ==============*/
+
+.Exhibition_filter_group {
+    margin-bottom: 35px;
+}
+
+.Exhibition_filter_group h1 {
+    background: #fcf2e3;
+    color: #000000;
+    font-size: 1.3rem;
+    padding: 13px 0;
+    font-weight: bold;
+    letter-spacing: .1rem;
+    line-height: 28px;
+    position: relative;
+}
+
+.Exhibition_filter_group h1 p {
+    width: calc(100% - 75px);
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+.Exhibition_filter_group h1 p:after {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url(../images/20_Exhibition_filter_TitleIcon.png);
+    background-size: cover;
+    margin-left: 8px;
+    vertical-align: middle;
+    margin-top: -3px;
+}
+
+.Exhibition_filter_group h1 img {
+    max-width: 20px;
+    max-height: 20px;
+    margin-left: 5px;
+    vertical-align: bottom;
+}
+
+.Exhibition_filter_group h1 span {
+    font-size: 12px;
+    color: #000;
+    padding: 0 15px;
+    border-radius: 15px;
+    border: solid 1px #888;
+    font-weight: bold;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: .3s;
+}
+
+.Exhibition_filter_group h1 a {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.Exhibition_filter_group h1:hover span {
+    color: #fff;
+    background: #8c001a;
+    border: solid 1px #8c001a;
+}
+
+.Exhibition_filter_list {
+    width: 100%;
+    padding: 10px 0;
+    line-height: 30px;
+    box-sizing: border-box;
+    border-bottom: solid 1px #eee;
+    overflow: hidden;
+}
+
+.Exhibition_filter_list:last-of-type {
+    border-bottom: none;
+}
+
+.Exhibition_filter_list h3 a {
+    display: block;
+}
+
+.Exhibition_filter_list a:hover {
+    color: #00b2e0;
+    transition: .3s;
+}
+
+.Exhibition_filter_list .remark {
+    width: 85%;
+    float: left;
+    font-size: 14px;
+    color: #de2b4c;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left: 5px;
+}
+
+.Exhibition_filter_list .remark:before {
+    content: "◆";
+    margin-right: 5px;
+}
+
+.Exhibition_filter_list .price {
+    float: right;
+    text-align: right;
+    color: #000000;
+    font-family: "Century Gothic", "微軟正黑體";
+    font-size: .8rem;
+}
+
+.Exhibition_filter_list .price span {
+    color: #bd0008;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: Arial;
+}
+
+.Exhibition_filter_list .price-none {
+    float: right;
+    text-align: right;
+    color: #bd0008;
+    font-weight: bold;
+    font-size: 1.2rem;
+    font-family: "Century Gothic", "微軟正黑體";
+}
+
+
+/*============== 平版尺寸 ==============*/
+
+@media (max-width: 768px) {
+    /* Search */
+    .searchBox-area {
+        width: 45%;
+    }
+    .searchBox-date {
+        width: 55%;
+    }
+    .searchBox-keyword {
+        width: 100%;
+        margin-top: 10px;
+    }
+    .searchBox-btn {
+        border: 1px solid #ccc;
+        background: #fff;
+        margin-left: 2px;
+        width: 123px;
+    }
+    ul.search-title {
+        padding-bottom: 10px;
+        border-bottom: solid 2px #7d7d7e;
+    }
+    ul.search-title li:first-of-type {
+        padding-left: 0;
+        font-size: 1rem;
+    }
+    ul.search-title li {
+        font-size: 1rem;
+    }
+    /*Exhibition_filter_head 地區篩選列*/
+    .Exhibition_filter_group h1 p:after {
+        display: none;
+    }
+}
+
+
+/*============== 手機版尺寸 ==============*/
+
+@media (max-width: 576px) {
+    /* Search */
+    .searchBox-area,
+    .searchBox-date {
+        width: 100%;
+    }
+    .searchBox-date {
+        margin-top: 10px;
+    }
+    /*Exhibition_filter_head 地區篩選列*/
+    #Exhibition_filter_head {
+        flex-wrap: wrap;
+        margin: 20px auto;
+    }
+    .Exhibition_filter_title {
+        width: 100%;
+        border-right: none;
+        border-bottom: 3px solid #acacac;
+        margin-bottom: 15px;
+        padding-bottom: 5px;
+    }
+    .Exhibition_filter_title span {
+        display: inline-block;
+    }
+    .Exhibition_filter_title p {
+        display: inline-block;
+        margin-left: 5px;
+    }
+    .Exhibition_filter_list {
+        padding: 10px 0 5px;
+    }
+    .Exhibition_filter_group {
+        margin-bottom: 10px;
+    }
+    .Exhibition_filter_group h1 {
+        margin: 8px 0;
+    }
+    .Exhibition_otherAreas_link {
+        width: 100%;
+        padding-left: 0;
+        border-left: none;
+    }
+    .Exhibition_otherAreas_link a {
+        margin-bottom: 5px;
+    }
+    #ExhSpecialEvent {
+        padding: 0 0 10px 0;
+    }
+    #ExhSpecialEvent-owl-carousel {
+        margin-top: 0;
+    }
+}
+
+figure.Exh-SpecialEvent-box:last-of-type {
+    margin-right: 0;
+    overflow: hidden;
+}
+
+figure.Exh-SpecialEvent-box img {
+    width: 100%;
+    transition: 0.5s;
+}
+
+figure.Exh-SpecialEvent-box:hover img {
+    opacity: 0.6;
+    transform: scale(1.1);
+}
+
+figure.Exh-SpecialEvent-box figcaption {
+    background: linear-gradient(transparent 5%, rgba(30, 29, 24, 0.9) 75%);
+    padding: 7px 15px;
+    position: absolute;
+    font-size: 0.875rem;
+    top: 60%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: flex-end;
+}
+
+figure.Exh-SpecialEvent-box p {
+    color: #fff;
+    padding: 0px;
+    margin: 0;
+    line-height: 21px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    align-items: flex-end;
+}
+
+figure.Exh-SpecialEvent-box a {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}

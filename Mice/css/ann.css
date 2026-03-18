@@ -1,0 +1,129 @@
+/* ===== 公告欄主體 ===== */
+.announcement-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #faf1f2;
+  color: #353535;
+  z-index: 9998;
+}
+
+/* ===== 內層容器 ===== */
+.announcement-container .ann-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  font-size: 17px;
+  letter-spacing: 0.1rem;
+  font-family: Segoe UI, Roboto, Helvetica Neue, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji, MicrosoftJhengHeiBoldFix, 微軟正黑體, Microsoft JhengHei;
+}
+
+/* 最大寬度 */
+.ann-container {
+  width: 95vw;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ===== 文字區塊 ===== */
+.announcement-content {
+  flex: 1;   /* 撐開空間 */
+  line-height: 1.6;
+}
+
+/* 注意 icon */
+.announcement-content .fa-exclamation-triangle {
+  color: #ec0000;
+}
+
+/* 文字 */
+.announcement-text {
+  font-weight: 400
+}
+
+/* 連結 */
+.announcement-link {
+  color: #353535;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  font-weight: 400;
+  transition: all 500ms ease;
+}
+
+.announcement-link:hover {
+  text-decoration: none;
+  color:  #ff4d4f;
+}
+
+/* ===== 關閉按鈕 ===== */
+.close-btn {
+  background: none;
+  border: 1px solid #353535;
+  color: #353535;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px 10px 5px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  transition: all 500ms ease;
+}
+
+.close-btn:hover {
+  background-color: #fff;
+  color: #ff4d4f;
+}
+
+/* ===== 手機 ===== */
+@media (max-width: 768.98px) {
+  .announcement-container .ann-container {
+    font-size: 15px;  
+    padding: 16px 10px;
+    letter-spacing: 0.08rem;
+  }
+
+
+  .announcement-content {
+    line-height: 1.3;
+    letter-spacing: 0;
+  }
+
+}
+
+
+@media (max-width: 575.98px) {
+  .announcement-container .ann-container {
+    padding: 16px 10px;
+    letter-spacing: 0.1rem;
+    
+  }
+
+  .announcement-content {
+    line-height: 1.3;
+    padding-right: 8px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480.98px) {
+  .announcement-container .ann-container {
+    padding: 10px 10px;
+  }
+}
+
+
+@media (max-width: 420.98px) {
+  .announcement-container .ann-container {
+    padding: 11px 10px;
+    letter-spacing: 0.1rem;
+    
+  }
+
+  .announcement-content {
+    line-height: 1.3;
+    padding-right: 8px;
+    font-size: 16px;
+  }
+}

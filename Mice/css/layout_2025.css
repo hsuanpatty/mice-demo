@@ -1,0 +1,30 @@
+/*============== Index Link ==============*/
+
+#indexLink {
+  padding: 18px 0 10px;
+}
+
+#indexLink-owl-carousel {
+  padding: 20px  0 15px;
+  position: relative;
+}
+
+#indexLink-owl-carousel .item figcaption {
+  font: 600 17px "微軟正黑體";
+  color: #494949;
+  letter-spacing: 0.05rem;
+  text-align: center;
+  margin-top: 3px;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .slick_wrap {
+    margin-top: 60px;
+  }
+
+  #indexLink-owl-carousel {
+    padding: 0  0 15px;
+  }
+  
+}

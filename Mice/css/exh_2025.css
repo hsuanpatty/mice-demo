@@ -1,0 +1,985 @@
+@charset "UTF-8";
+
+/* CSS Document */
+
+
+/*============== ExhTop ==============*/
+
+#ExhMiniTop {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 110px;
+    margin-bottom: 10px;
+}
+
+aside.ExhMiniTop-aside {
+    width: 28%;
+    padding: 30px 0 30px 20px;
+    position: relative;
+}
+
+#ExhMini-banner {
+    width: 72%;
+    max-width: 1020px;
+    margin: 0 auto;
+}
+
+h1.ExhMiniTop-title {
+    margin-bottom: 20px;
+    margin-left: -25px;
+}
+
+h1.ExhMiniTop-title span {
+    background: #a33348;
+    color: #fff;
+    border-radius: 30px;
+    padding: 2px 35px 4px;
+    font-size: 1.5rem;
+    letter-spacing: 0;
+}
+
+h2.ExhMiniTop-area span {
+    border-left: solid 5px #8c001a;
+    padding: 0 10px;
+    font-size: 1.5rem;
+    display: -webkit-box;
+    overflow: hidden;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    max-height: 108px;
+
+    line-height: 35px;
+    letter-spacing: 0;
+}
+
+aside.ExhMiniTop-aside hr {
+    background: #e5e5e5;
+    height: 3px;
+    margin: 20px 0;
+    border: 0;
+}
+
+.ExhMini-otherAreas-tool {
+    margin-bottom: 20px;
+    color: #4e4e4e;
+    padding-right: 10px;
+}
+
+@media (max-width: 992px) {
+    .ExhMini-otherAreas-tool {
+        display: none;
+    }
+}
+
+.ExhMini-otherAreas-link {
+    height: 215px;
+    padding-right: 15px;
+    overflow-y: auto;
+}
+
+@media (max-width: 1280px) {
+    .ExhMini-otherAreas-link {
+        height: 180px;
+        overflow-y: auto;
+    }
+}
+
+@media (max-width: 1024px) {
+    .ExhMini-otherAreas-link {
+        height: 70px;
+        overflow-y: auto;
+    }
+}
+
+
+/* Let's get this party started */
+.ExhMini-otherAreas-link::-webkit-scrollbar {
+    width: 6px;
+}
+
+
+/* Track */
+.ExhMini-otherAreas-link::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.3);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+/* Handle */
+.ExhMini-otherAreas-link::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(189, 189, 189, 0.5);
+}
+
+.ExhMini-otherAreas-link::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(189, 189, 189, 0.5);
+}
+
+.ExhMini-otherAreas-link a {
+    color: #4e4e4e;
+    border: solid 1px #959595;
+    padding: 4px 15px;    
+    margin: 0 3px 10px 3px;
+    display: inline-block;
+    border-radius: 15px;
+    font-size: .95rem;
+    font-weight: bold;
+    transition: .2s;
+}
+
+.ExhMini-otherAreas-link a:hover {
+    background: #e37989;
+    border: solid 1px #e37989;
+    color: #fff;
+}
+
+.ExhMini-aside-title {
+    font-size: .875rem;
+    margin-bottom: 15px;
+}
+
+.ExhMini-navigate {
+    position: absolute;
+    bottom: 0px;
+    margin: 10px 5px 15px;
+    font-size: .875rem;
+    color: #0c02de;
+}
+
+.ExhMini-navigate a {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    color: #000;
+}
+
+.ExhMini-navigate a:after {
+    content: ">";
+    display: inline-block;
+    margin: 0 6px;
+}
+
+/*============== Exh-banner ==============*/
+
+#ExhMiniBanner-owl-carousel {
+    width: 100%;
+}
+
+#ExhMiniBanner-owl-carousel .owl-dots {
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#ExhMiniBanner-owl-carousel .owl-dots .owl-dot span {
+    background: transparent;
+    border: solid 1px #b5b5b5;
+    margin: 5px;
+}
+
+#ExhMiniBanner-owl-carousel .owl-dots .owl-dot.active span,
+#ExhMiniBanner-owl-carousel .owl-dots .owl-dot:hover span {
+    background: #b5b5b5;
+}
+
+.owl-theme .owl-dots .owl-dot {
+    outline: none;
+}
+
+
+/*============== Search ==============*/
+
+#main-search {
+    background: #f4f3f3;
+    padding: 30px 0;
+}
+
+ul.search-title {
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 1400px) {
+    ul.search-title {
+        padding: 0;
+    }
+}
+
+ul.search-title li {
+    font-family: 'Noto Sans TC';
+    font-size: 1.125rem;
+    padding: 0 12px;
+    border-right: solid 1px #8c001a;
+}
+
+@media (max-width: 576px) {
+    ul.search-title li {
+        padding: 0 8px;
+    }
+}
+
+@media (max-width: 360px) {
+    ul.search-title li {
+        padding: 0 6px;
+    }
+}
+
+@media (max-width: 320px) {
+    ul.search-title li {
+        padding: 0 2px;
+    }
+}
+
+ul.search-title li:first-of-type {
+    font-family: 'Noto Sans TC';
+    font-weight: bold;
+    font-size: 1.125rem;
+}
+
+ul.search-title li:last-of-type {
+    border-right: none;
+}
+
+ul.search-title li a {
+    display: block;
+    transition: .5s;
+}
+
+ul.search-title li a:hover {
+    color: #8c001a;
+}
+
+#search-tool {
+    border-radius: 20px;
+    margin: 0 5%;
+    font-size: .875rem;
+    display: flex;
+    flex-wrap: wrap;
+    color: #767676;
+    font-weight: bold;
+    background: #fff;
+}
+
+@media (max-width: 1400px) {
+    #search-tool {
+        margin: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    #search-tool {
+        border: none;
+        background: transparent;
+        border-radius: 0;
+        padding: 5px 0;
+    }
+}
+
+.searchBox-area {
+    width: 30%;
+}
+
+
+.searchBox-keyword {
+    width: 35%;
+}
+
+.searchBox-selectArea,
+.searchBox-selectCountry {
+    width: calc(50% - 42px);
+}
+
+.go-box,
+.back-box {
+    width: calc(50% - 38px);
+    position: relative;
+    display: inline-block;
+}
+
+.go-box img,
+.back-box img {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: 6px;
+    right: 10px;
+    pointer-events: none;
+}
+
+#flatpickr-go,
+#flatpickr-back {
+    width: 100%;
+}
+
+img.searchBox-area-icon {
+    vertical-align: middle;
+    margin: 0 5px;
+}
+
+#search-tool input {
+    -webkit-appearance: none;
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 0;
+    color: #333;
+    padding: 0 5px;
+    line-height: 28px;
+    height: 28px;
+}
+
+#search-tool select {
+    border: 1px solid #ccc;
+    border-radius: 0;
+    background: url(../images/20_arrow.png) no-repeat scroll 95% center #fff;
+    -webkit-appearance: none;
+    color: #333;
+    padding: 0 5px;
+    height: 28px;
+}
+
+.searchBox-keyword input {
+    width: calc(100% - 181px);
+}
+
+.searchBox-btn {
+    font-size: 1rem;
+    width: 115px;
+    height: 28px;
+    display: inline-block;
+    padding: 0px 0 0 10px;
+    line-height: 26px;
+    margin-left: 10px;
+    border-left: solid 1px #000;
+}
+
+.searchBox-btn a {
+    transition: .5s;
+}
+
+@media (max-width: 768px) {
+    .searchBox-btn a {
+        color: #8c001a;
+    }
+}
+
+.searchBox-btn:hover a {
+    color: #8c001a;
+}
+
+
+/*============== ExhMiniHotSale ==============*/
+
+#ExhMiniHotSale {
+    padding: 20px 0;
+}
+
+h3.main-title {
+    font-size: 1.75rem;
+    font-family: 'Noto Sans TC';
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+#ExhMiniHotSale h3.main-title {
+    margin-top: 20px;
+    position: relative;
+}
+
+#ExhMiniHotSale h3.main-title:after {
+    content: "";
+    background: url(../images/20_exhTitle_icon01.png) no-repeat center center;
+    width: 8px;
+    height: 30px;
+    position: absolute;
+    bottom: -23px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-size: contain;
+}
+
+#ExhMiniHotSale-owl-carousel {
+    margin-top: 20px;
+}
+
+#ExhMiniHotSale-owl-carousel .owl-nav {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    margin: 0;
+}
+
+#ExhMiniHotSale-owl-carousel .owl-nav .owl-prev {
+    position: absolute;
+    left: -5%;
+    font-size: 8rem;
+    line-height: 0;
+    color: #e5e5e5;
+}
+
+#ExhMiniHotSale-owl-carousel .owl-nav .owl-next {
+    position: absolute;
+    right: -5%;
+    font-size: 8rem;
+    line-height: 0;
+    color: #e5e5e5;
+}
+
+#ExhMiniHotSale-owl-carousel .owl-nav .disabled {
+    opacity: 0;
+}
+
+#ExhMiniHotSale-owl-carousel .owl-nav [class*=owl-]:hover,
+#ExhMiniHotSale-owl-carousel .owl-nav [class*=owl-]:focus {
+    background: transparent;
+    outline: none;
+}
+
+#ExhMiniHotSale-owl-carousel figure {
+    padding-top: 55px;
+}
+
+figure.hotSale-box figcaption,
+figure.hotSale-video figcaption {
+    padding: 5px 10px 5px 10px;
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+}
+
+figure.hotSale-box img,
+figure.hotSale-video .video_container {
+    transition: .5s;
+}
+
+figure.hotSale-box:hover img,
+figure.hotSale-video:hover .video_container {
+    transform: translateY(-50px);
+    box-shadow: 0 0 5px 2px #bdbdbd;
+}
+
+figure.hotSale-box p,
+figure.hotSale-video p {
+    height: 40px;
+    color: #767676;
+    margin: 0;
+    font-weight: bold;
+    font-size: .875rem;
+    line-height: 21px;
+    display: -webkit-box;
+    overflow: hidden;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    padding: 0 10px;
+}
+
+figure.hotSale-box p:before,
+figure.hotSale-video p:before {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-left-color: #000;
+    margin-left: -10px;
+}
+
+figure.hotSale-box a {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.video_container {
+    position: relative;
+    padding-bottom: 80%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+}
+
+.video_container iframe,
+.video_container object,
+.video_container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0 none;
+}
+
+
+/*============== ExhMiniMain ==============*/
+
+#ExhMiniMain {
+    padding: 20px 0 0;
+}
+
+#ExhMiniMain h3.main-title {
+    margin: 20px 0 15px;
+    position: relative;
+    background: url(https://www.artisan.com.tw/images/20_exhTitle_bg.png) no-repeat center center;
+    width: 100%;
+    height: 34px;
+}
+
+@media (max-width: 768px) {
+    #ExhMiniMain h3.main-title {
+        background: none;
+    }
+}
+
+/*============== ExhMiniItinerary ==============*/
+
+.ExhMiniItinerary {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -20px;
+}
+
+.ExhMini-box {
+    width: 33.33%;
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .ExhMini-box {
+        width: 50%;
+    }
+}
+
+@media (max-width: 576px) {
+    .ExhMini-box {
+        width: 100%;
+    }
+}
+
+.ExhMini-box-pic {
+    position: relative;
+    overflow: hidden;
+    line-height: 0;
+    background: #000;
+}
+
+.ExhMini-box-pic img {
+    width: 100%;
+    transition: .5s;
+}
+
+.ExhMini-box:hover .ExhMini-box-pic img {
+    opacity: 0.6;
+    transform: scale(1.1);
+}
+.picBrand {
+    z-index: 2;
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* 品牌icon圖片 */
+
+.brand_T .picBrand {
+    background: url(../images/20_exh_Ticon.png) no-repeat;
+    background-size: contain;
+    width: 118px;
+    height: 57px;
+    pointer-events: none;
+}
+
+.brand_V .picBrand {
+    background: url(../images/20_exh_Vicon.png) no-repeat;
+    background-size: contain;
+    width: 118px;
+    height: 57px;
+    pointer-events: none;
+}
+
+.brand_A .picBrand {
+    background: url(https://www.artisan.com.tw/images/20_exh_Aicon.png) no-repeat;
+    background-size: contain;
+    width: 118px;
+    height: 57px;
+    pointer-events: none;
+}
+
+.brand_G .picBrand {
+    background: url(../images/20_exh_Gicon.png) no-repeat;
+    background-size: contain;
+    width: 118px;
+    height: 57px;
+    pointer-events: none;
+}
+
+.brand_L .picBrand {
+    background: url(../images/20_exh_Licon.png) no-repeat;
+    background-size: contain;
+    width: 118px;
+    height: 57px;
+    pointer-events: none;
+}
+
+
+.ExhMini-box-area {
+    border: solid 1px #aaa;
+    border-top: none;
+    padding: 25px 5% 15px 5%;
+}
+
+h3.ExhMini-box-title {
+    font-size: 1.125rem;
+    margin-bottom: 15px;
+    line-height: 21px;
+    height: 42px;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    transition: .5s;
+}
+
+h3.ExhMini-box-title a {
+    display: block;
+    transition: .5s;
+}
+
+.ExhMini-box-area hr {
+    background: #d2d2d2;
+    height: 1px;
+    border: 0;
+}
+
+/* 品牌標題顏色 */
+
+.ExhMini-box.brand_T:hover h3.ExhMini-box-title {
+    color: #4a1b86;
+}
+
+.ExhMini-box.brand_A:hover h3.ExhMini-box-title {
+    color: #8c001a;
+}
+
+.ExhMini-box.brand_V:hover h3.ExhMini-box-title {
+    color: #67b72d;
+}
+
+.ExhMini-box.brand_G:hover h3.ExhMini-box-title {
+    color: #e7318c;
+}
+
+.ExhMini-box.brand_L:hover h3.ExhMini-box-title {
+    color: #AD7E3D;
+}
+
+.ExhMini-box-note {
+    font-size: .875rem;
+    color: #676767;
+    font-weight: bold;
+    line-height: 18px;
+    height: 34px;
+    margin: 15px 0 10px;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.ExhMini-box-price {
+    font-family: Arial;
+    font-size: 2.125rem;
+    font-weight: bold;
+    color: #c10000;
+    letter-spacing: .1rem;
+}
+
+.ExhMini-box-price:before {
+    content: "NT.";
+    font-size: 1.125rem;
+    color: #000;
+    font-family: Microsoft JhengHei, "微軟正黑體";
+}
+
+.ExhMini-box-price:after {
+    content: "起";
+    font-size: 1.125rem;
+    color: #000;
+    font-family: Microsoft JhengHei, "微軟正黑體";
+}
+
+.ExhMini-box-noprice {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #c10000;
+    letter-spacing: .1rem;
+    padding-top: 15px;
+    height: 39px;
+}
+
+
+/* select-cat */
+.selectArry-Group {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 0 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.selectArry-Group .selectArry-title {
+    font: 600 15px "微軟正黑體";
+    color: rgb(37, 37, 37);
+    padding-top: 2px;
+    padding-right: 10px;
+}
+
+.selectArry-Group .wrapper {
+    padding-top: 10px;
+}
+
+
+.animated-box{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.animated-container {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.animated-container  input[type="radio"]:checked {
+    border-color: #8c001a;
+    background-color: #8c001a;
+    
+}
+
+.animated-container input[type="radio"] {
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    position: relative;
+    cursor: pointer;
+    vertical-align: middle;
+    transition:  all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animated-container input[type="radio"]:checked::after {
+    content: "\f00c";
+    position: absolute;
+    color: white;
+    font-size: 14px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    font-family: 'FontAwesome';
+
+}
+
+.animated-container p {
+    font: 600 17px "微軟正黑體";
+    color: #555;
+}
+
+.animated-container input[type="radio"]:checked + label {
+    font: 600 17px "微軟正黑體";
+    color: #8c001a;
+    cursor: pointer;
+}
+
+.animated-container input[type="radio"] + label {
+    font: 600 17px "微軟正黑體";
+    color: #555;
+    cursor: pointer;
+}
+
+.option-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+
+#sort-travel:checked ~ .wrapper .ExhMiniItinerary  [data="travel"]{
+	display: none;
+}
+#sort-date:checked ~ .wrapper .ExhMiniItinerary  [data="date"]{
+	display: none;
+}
+
+
+@media (max-width: 1399.98px) {
+    aside.ExhMiniTop-aside {
+        width: 30%;
+    }
+
+    #ExhMini-banner {
+        width: 65%;
+    }
+}
+
+@media (max-width: 1199.98px) {
+     aside.ExhMiniTop-aside {
+        width: 32%;
+    }
+
+    h1.ExhMiniTop-title span,
+    h2.ExhMiniTop-area span {
+        font-size: 1.2rem;
+    }
+
+    #ExhMini-banner {
+        width: 68%;
+        margin: auto;
+    }
+}
+
+@media (max-width: 991.98px) {
+    aside.ExhMiniTop-aside {
+        width: 42%;
+    }
+
+    h1.ExhMiniTop-title span,
+    h2.ExhMiniTop-area span {
+        font-size: 1.2rem;
+    }
+
+    #ExhMini-banner {
+        width: 58%;
+        margin: auto;
+    }
+
+    aside.ExhMiniTop-aside {
+    padding: 10px 0 30px 20px;
+    }
+}
+
+/*============== 平版尺寸 ==============*/
+@media (max-width: 768px) {
+    /* ExhMiniTop*/
+    #ExhMiniTop {
+        width: 100%;
+    }
+    aside.ExhMiniTop-aside {
+        width: 90%;
+        padding: 0;
+        margin: 0 auto;
+    }
+    aside.ExhMiniTop-aside hr {
+        display: none;
+    }
+    h1.ExhMiniTop-title span {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+    .ExhMini-navigate {
+        position: relative;
+    }
+    #ExhMini-banner {
+        width: 100%;
+    }
+    /* Search */
+    .searchBox-area {
+        width: 45%;
+    }
+    .searchBox-date {
+        width: 100%;
+    }
+    .searchBox-keyword {
+        width: 100%;
+        margin-top: 10px;
+    }
+    .searchBox-btn {
+        border: 1px solid #ccc;
+        background: #fff;
+        margin-left: 2px;
+        width: 123px;
+    }
+    ul.search-title {
+        padding-bottom: 10px;
+        border-bottom: solid 2px #7d7d7e;
+    }
+    ul.search-title li:first-of-type {
+        padding-left: 0;
+        font-size: 1rem;
+    }
+    ul.search-title li {
+        font-size: 1rem;
+    }
+    /* ExhMiniHotSale */
+    h3.main-title {
+        font-size: 1.5rem;
+    }
+    h3.main-title span {
+        background: #fff100;
+        background: linear-gradient(transparent 80%, #fff100 0%);
+        padding: 0 10px;
+    }
+    #ExhMiniHotSale h3.main-title {
+        margin-top: 0;
+    }
+    #ExhMiniHotSale h3.main-title:after {
+        width: 4px;
+        height: 15px;
+        bottom: -3px;
+    }
+    figure.hotSale-box figcaption, 
+    figure.hotSale-video figcaption {
+        position: relative;
+    }
+    #ExhMiniHotSale-owl-carousel .owl-nav {
+        top: 30%;
+    }
+    #ExhMiniHotSale-owl-carousel figure {
+        padding-top: 0;
+    }
+    figure.hotSale-box:hover img,
+    figure.hotSale-video:hover .video_container {
+        transform: translateY(0);
+    }
+
+    /* 2025 新增 */
+
+    .selectArry-Group {
+        padding: 20px 20px 30px;
+    }
+    .animated-box {
+        justify-content: center;
+    }
+
+    #ExhMiniTop {
+        margin-top: 60px;
+    }
+}
+
+/*============== 手機版尺寸 ==============*/
+
+@media (max-width: 576px) {
+    .searchBox-area,
+    .searchBox-date {
+        width: 100%;
+    }
+    .searchBox-date {
+        margin-top: 10px;
+    }
+}

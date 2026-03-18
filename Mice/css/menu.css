@@ -1,0 +1,289 @@
+.menu-pc {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+.nav_wrap {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    height: 50px;
+}
+
+.menu-pc .add-high{
+    /* line-height: 48px; */
+    height: 64px;
+    margin: 0 !important;
+}
+
+.nav_box {
+    z-index: 100;
+    /* top: 20%; */
+    position: relative;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    height: 100%;
+    margin: 0 3.3em;
+    /* left: 10%;
+    padding-left: 1em;
+    padding-right: 1em; */
+    /* padding-bottom: 10px; */
+    padding-bottom: 25px;
+}
+.nav-box-img {
+    position: relative;
+    top: -0.5em;
+    left: 0.3em;
+    z-index: 101;
+}
+.nav_box a {
+    font-weight: 900;
+}
+.nav-title {
+    font-weight: 900;
+    font-size: 15px;
+    margin-top: 10%;
+    z-index: 120;
+}
+.nav-title:hover{
+    cursor: pointer;
+    transition: .3s;
+}
+.sub_menu_title {
+    position: relative; /* 為偽元素定位 */
+}
+
+.sub_menu_title .no-after:after {
+    width: 0px;
+    height: 0px;
+}
+.under_line {
+    z-index: 102;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 5px; /* 底線厚度 */
+    background: #8c001a; /* 底線顏色 */
+    transition: width 0.3s ease; /* 過渡效果 */
+    margin-top: 10px;
+}
+
+.nav_box .under_line.active {
+    width: 100%;
+}
+
+
+.nav_box .sub_menu .sub_menu_box:first-child .sub_sub_menu_wrap.active {
+  height: max-content;
+  /* min-height: 400px; */
+  min-height: 340px;
+  opacity: 1;
+  visibility: visible;
+}
+.sub_menu_title span.active {
+  color: #8c001a;
+}
+.sub_menu {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  left: 0;
+  background: rgba(255, 255, 255, 0.95);
+  overflow: hidden;
+  top: 98px;
+  display: block;
+  opacity: 0;
+  visibility: hidden;
+  height: auto;
+  transition: opacity 0.7s, visibility 0.3s, height 0.3s;
+}
+.sub_menu.active {
+    height: max-content;
+    opacity: 1;
+    overflow: visible;
+    visibility: visible;
+    transition: opacity 0.7s, visibility 0.3s, height 0.3s;
+}
+.sub_menu_wrap {
+  display: flex;
+    justify-content: center;
+}
+.sub_menu_box {
+    padding: 20px 10px 10px 10px;
+}
+.sub_menu_title span {
+    display: block;
+    color: #000;
+    width: 100%;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 30px;
+    padding-left: 10px;
+}
+.sub_menu_title span:hover{
+    cursor: pointer;
+    transition: .3s;
+}
+.sub_menu_list {
+    /*max-width: 40%;*/
+}
+
+.if-over-8-span {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    box-sizing: border-box;
+    /*margin-left: 25px;*/
+}
+
+.if-over-8 li {
+    width: 50%;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.if-over-16 li {
+    width: 30% !important;
+}
+
+.if-over-24 li {
+    width: 25% !important;
+}
+/*
+.sub_menu_list li:nth-child(n + 9) {
+    width: 50%;
+}*/
+.nav_box a {
+    display: block;
+    /* color: #fff; */
+    text-decoration: none;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.nav_box li a {
+    font-family: "Noto Sans TC", "微軟正黑體", Arial, sans-serif;
+    font-size: 16px;
+    color: #404040;
+    font-weight: 400;
+    display: block;
+    -webkit-transition: opacity .3s ease-out;
+}
+
+.nav_box li a:hover {
+    color: #e1294c;
+}
+
+.sub_menu_list {
+    height: 0;
+    list-style: none;
+    padding-left: 0;
+    padding: 0 30px;
+    /*width: 150px;*/
+}
+
+.sub_menu_list li {
+    padding: 0.3rem;
+    box-sizing: border-box;
+    position: relative;
+    color: #404040;
+    letter-spacing: 0.12rem;
+    transition: color 0.5s ease;
+}
+
+
+.nav_box
+    .sub_menu
+    .sub_menu_box
+    .sub_sub_menu_wrap.active {
+    height: max-content;
+    /* min-height: 400px; */
+    min-height: 340px;
+    opacity: 1;
+    visibility: visible;
+    transition: 
+    /* opacity 0.7s, */
+     /* visibility 0.3s,  */
+     height 0.3s;
+}
+
+.sub_sub_menu_wrap {
+    opacity: 0;
+    visibility: hidden;
+    height: auto;
+    overflow: hidden;
+    transition: opacity 0.7s, visibility 0.3s, height 0.3s;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 0;
+    overflow: hidden;
+    position: absolute;
+    transform: translate(-50%, 0);
+    left: 50%;
+    top: 100%;
+    /* padding-top: 30px; */
+
+    background: rgba(255, 255, 255, 0.95);
+    width: 100vw;
+}
+.lane {
+    position: relative;
+    color:#8c001a;
+    font-weight: bold;
+    transition: color 0.5s ease;
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
+.lane::after {
+    content: '';
+    position: absolute;
+    top: 50%; /* 居中横线 */
+    width: calc(100% - 10px);
+    border-top: 2px solid #8c001a; /* 可以根据需要调整横线的样式 */
+    transform: translateY(-50%); /* 使横线垂直居中 */
+    margin-left: 10px;
+    transition: color 0.5s ease;
+}
+
+.sub_menu_title.sub_menu_title_open + .sub_sub_menu_wrap .sub_menu_list li {
+    margin-top: 5px; /* 调整li元素的上边距，使其与横线相隔一定距离 */
+}
+.nav_box .nav_boxtitle {
+    color: #404040;
+    margin-top: 30%;
+    font-size: 15px;
+    font-family: Microsoft JhengHei, "微軟正黑體";
+    letter-spacing: 0.05em;
+    line-height: 1.15 !important;
+}
+
+.sub_menu_list li:hover {
+    color: #e1294c;
+}
+.two_column {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 250px;
+    /*width: 300px;*/
+}
+.three_column {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 250px;
+    width: 600px;
+    max-width: 100%;
+}

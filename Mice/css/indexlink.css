@@ -1,0 +1,82 @@
+#indexLink .owl-stage-outer {
+    padding-bottom: 10px;
+}
+
+.link-box {
+    background-color: #f6f6f6;
+    border: 1px solid #f6f6f6;
+    background-clip: padding-box;
+    padding: 20px;
+    border-radius: 10px;
+
+    height: 100px;
+
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    transition: .3s;
+    cursor: pointer;
+
+}
+
+.link-box-2 {
+    background-color: #f6f6f6;
+    border: 1px solid #f6f6f6;
+    padding: 20px;
+    border-radius: 10px;
+
+    height: 100px;
+
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    transition: .3s;
+    cursor: pointer;
+
+
+}
+
+.link-box:hover,
+.link-box-2:hover {
+    background-color: #f6f6f6;
+    border: 1px solid #b9b9b9;
+}
+
+
+.link-box-2 p {
+    font: 600 17px "微軟正黑體";
+    color: #494949;
+    letter-spacing: 0.05rem;
+}
+
+.item-pc-2 {
+    width: 30% !important;
+    display: flex !important;
+    margin-right: 5px;
+    padding-bottom: 5px;
+} 
+
+.link-d {
+    display: inline-flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+/*  min */
+@media (min-width: 1400px) { 
+    .link-box,
+    .link-box-2 {
+        width: 200px;
+    }
+}
+
+
+/* max */
+@media (max-width: 575.98px) { 
+    .link-box,
+    .link-box-2 {
+        padding: 8px 10px;
+        height: 95px;
+    }
+}
