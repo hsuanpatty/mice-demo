@@ -283,6 +283,8 @@ main.scroll-target {
   display: flex;
   flex-direction: column;
   z-index: 1;
+
+  overflow: hidden;
 }
 
 .svcs-card:hover {
