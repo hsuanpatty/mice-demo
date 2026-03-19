@@ -732,7 +732,7 @@ main.scroll-target {
 /* 小螢幕 */
 @media screen and (max-width: 576px) {
   .mice-contact-box {
-    padding: 60px 16px;
+    padding: 65px 16px;
   }
 
   .person {
