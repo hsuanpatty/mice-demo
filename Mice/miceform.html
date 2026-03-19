@@ -738,7 +738,7 @@
           <h3><span>＊</span>為必填欄位，讓我們更了解你的需求，巨匠旅遊將安排專人盡速與你聯繫！</h3>
           <!-- 需求表單 -->
           <div class="form-container">
-            <form>
+            <form id="miceForm">
               <div class="form-row">
                 <label>旅遊主題<span class="required">*</span></label>
                 <div class="custom-select-wrapper">
@@ -753,7 +753,7 @@
                       <li data-value="其它">其它(開放填寫)</li>
                     </ul>
                   </div>
-                  <input type="hidden" name="theme" />
+                  <input type="hidden" name="theme" required />
                 </div>
 
                 <label>預算</label>
@@ -771,11 +771,11 @@
                       <li data-value="其他">其他</li>
                     </ul>
                   </div>
-                  <input type="hidden" name="needs" />
+                  <input type="hidden" name="needs" required />
                 </div>
 
                 <label>聯絡電話<span class="required">*</span></label>
-                <input type="text" placeholder="請填市內電話或手機" />
+                <input type="text" placeholder="請填市內電話或手機" required />
               </div>
 
               <div class="form-row">
@@ -790,11 +790,11 @@
                       <li data-value="15+">15天以上</li>
                     </ul>
                   </div>
-                  <input type="hidden" name="days" />
+                  <input type="hidden" name="days" required />
                 </div>
 
                 <label>聯絡窗口<span class="required">*</span></label>
-                <input type="text" placeholder="請填寫姓名" />
+                <input type="text" placeholder="請填寫姓名" required />
               </div>
 
               <div class="form-row">
@@ -805,7 +805,6 @@
                 <input type="email" placeholder="請填寫電子信箱" />
               </div>
 
-              <!-- 其他需求 -->
               <div class="form-row full">
                 <label>其他需求</label>
                 <textarea placeholder="請填寫你的需求"></textarea>
