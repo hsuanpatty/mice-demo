@@ -746,10 +746,17 @@ main.scroll-target {
     font-size: 18px;
   }
 
+  .person-card-content {
+    padding: 0 36px 20px;
+  }
+
+
+
   .person-card-content p {
     font-size: 17px;
     letter-spacing: 0.1rem;
-    white-space:nowrap;
+    white-space: normal;      
+    word-break: break-word;
   }
 
   .mice-contact-grid {
