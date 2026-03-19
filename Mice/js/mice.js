@@ -10,11 +10,48 @@ document.addEventListener("DOMContentLoaded", function () {
     item.classList.toggle("active", index === 0);
   });
 
-  // 點擊滑動
+  let firstClickDone = false; // 標記第一次點擊
+
+  function smoothScrollTo(targetY, duration = 800) {
+    const startY = window.scrollY || window.pageYOffset;
+    const distance = targetY - startY;
+    let startTime = null;
+
+    function animation(currentTime) {
+      if (!startTime) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const progress = Math.min(timeElapsed / duration, 1);
+
+      // easeInOutCubic 漸進效果
+      const ease = progress < 0.5
+        ? 4 * progress * progress * progress
+        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+      window.scrollTo(0, startY + distance * ease);
+
+      if (timeElapsed < duration) requestAnimationFrame(animation);
+    }
+
+    requestAnimationFrame(animation);
+  }
+
+  // 點擊 nav
   navItems.forEach((item, index) => {
     item.addEventListener("click", () => {
-      if (sections[index]) {
-        sections[index].scrollIntoView({ behavior: "smooth" });
+      const section = sections[index];
+      if (!section) return;
+
+      const rect = section.getBoundingClientRect();
+      const scrollTop = window.scrollY || window.pageYOffset;
+      const targetY = scrollTop + rect.top - window.innerHeight / 2 + rect.height / 2;
+
+      if (!firstClickDone) {
+        // 第一次使用 native smooth，不卡
+        section.scrollIntoView({ behavior: "smooth", block: "center" });
+        firstClickDone = true;
+      } else {
+        // 之後慢速滑動
+        smoothScrollTo(targetY, 1000);
       }
 
       // 更新 active
@@ -25,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 滾動監聽，切換 active
   window.addEventListener("scroll", () => {
-    let scrollPos = window.scrollY + window.innerHeight / 3; // 提前切換 active
+    const scrollPos = window.scrollY + window.innerHeight / 3;
     sections.forEach((section, index) => {
       if (!section) return;
       if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
@@ -35,6 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
 // ----------------- 自訂下拉選單 + 表單必填檢查 -----------------
 document.addEventListener("DOMContentLoaded", function () {
   // ===== 自訂下拉選單 =====
