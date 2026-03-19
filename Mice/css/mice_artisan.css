@@ -1,11 +1,11 @@
-.py-100 {
-  padding-top: 100px !important;
-  padding-bottom: 100px !important;
-}
-
 .w-100vw {
     width: 100vw;
 }
+
+.d-block {
+  display: block;
+}
+
 
 /* ====================== */
 /* container 與 row 基本設定 */
