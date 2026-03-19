@@ -10,6 +10,10 @@
     width: 100vw;
 }
 
+section {
+  scroll-margin-top: 120px;
+}
+
 /* ====================== */
 /* container 與 row 基本設定 */
 /* ====================== */
@@ -410,7 +414,8 @@ main.scroll-target {
 }
 
 /* 聯絡我們 */
-.person-bg {
+.sec2,
+.sec3 {
     background: #fff;
 }
 
