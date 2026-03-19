@@ -99,7 +99,7 @@
   font-weight: 700;
   letter-spacing: 0.1rem;
   color: #8c001a;      
-  cursor: default;
+  cursor: pointer;
 }
 
 .input-box .button {
