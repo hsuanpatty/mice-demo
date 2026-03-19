@@ -27,8 +27,8 @@ $('#FirmCooperation-owl-carousel').owlCarousel({
     autoplayHoverPause: true,
 
     navText: [
-        "<img src='/images/member/20_back.png'>",
-        "<img src='/images/member/20_next.png'>"
+        "<img src='./images/member/20_back.png'>",
+        "<img src='./images/member/20_next.png'>"
     ],
 
     responsive:{
