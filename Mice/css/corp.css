@@ -851,6 +851,10 @@ main.scroll-target {
     padding: 10px 0  40px;
   }
 
+   .cs-box {
+    padding: 0 20px 0;
+  }
+
   .cs-box h2 {
     margin-bottom: 35px;
   }
