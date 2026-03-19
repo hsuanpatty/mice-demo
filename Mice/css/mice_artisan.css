@@ -1,3 +1,8 @@
+.py-100 {
+  padding-top: 100px !important;
+  padding-bottom: 100px !important;
+}
+
 .w-100vw {
     width: 100vw;
 }
@@ -241,7 +246,7 @@ textarea {
 /* 自訂下拉選單容器 */
 .custom-select-wrapper {
   position: relative;
-  max-width: 400px;
+  max-width: 100%;
 }
 
 .custom-select-wrapper label {
@@ -397,13 +402,25 @@ button:hover {
 
 @media (max-width: 575px) {
   .form-container {
-    margin: 30px 15px;
+    margin: 20px 15px 30px;
   }
 
   .form-row {
-    grid-template-columns: 1fr; /* 每個欄位單列堆疊 */
-    gap: 15px 0;
-    margin-bottom: 30px;
+    grid-template-columns: 1fr; 
+    gap: 10px 0;
+    margin-bottom: 8px;
+  }
+
+  .form-container form .form-row:nth-of-type(3) {
+      padding-bottom: 10px; 
+  }
+
+  .form-container form .form-row:nth-of-type(4) {
+      gap: 15px 0;
+  }
+
+  .form-row.full {
+    padding-top: 10px;
   }
 
   label {
