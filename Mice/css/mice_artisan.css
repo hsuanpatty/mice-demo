@@ -243,6 +243,7 @@ textarea {
 }
 
 /* 自訂下拉選單樣式 */
+/* 自訂下拉選單容器 */
 .custom-select-wrapper {
   position: relative;
   max-width: 400px;
@@ -255,6 +256,7 @@ textarea {
   margin-bottom: 5px;
 }
 
+/* 自訂下拉選單 */
 .custom-select {
   position: relative;
   background: #fff;
@@ -262,6 +264,7 @@ textarea {
   border: 1px solid #9D9394;
   cursor: pointer;
   padding: 10px 40px 10px 15px; /* 右邊留箭頭空間 */
+  transition: border 0.3s, box-shadow 0.3s;
 }
 
 /* 箭頭 */
@@ -273,18 +276,32 @@ textarea {
   transform: translateY(-50%);
   width: 12px;
   height: 12px;
-
   background-image: url('../images/mice/miceform-arrow.png');
   background-repeat: no-repeat;
   background-size: contain;
 }
 
+/* 初始文字 */
 .custom-select .selected {
-  color: #9D9394;
+  color: #9D9394; /* 初始灰色文字 */
   font-size: 16px;
   text-align: left;
 }
 
+/* 已選擇值 */
+.custom-select .selected.has-value {
+  color: #000; /* 選擇後文字黑色 */
+}
+
+/* 下拉選單紅框（必填錯誤） */
+.custom-select .selected.error {
+  border: 2px solid red;
+  border-radius: 12px;
+  box-shadow: 0 0 4px rgba(255,0,0,0.5);
+  color: #000;
+}
+
+/* 下拉選單選項 */
 .custom-select .options {
   position: absolute;
   top: 100%;
@@ -296,10 +313,9 @@ textarea {
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
   margin-top: 5px;
   display: none;
-  z-index: 10;
+  z-index: 999;
   list-style: none;
   padding: 5px 0;
-
   overflow: hidden;
 }
 
@@ -314,9 +330,16 @@ textarea {
   background: #F7E8E8;
 }
 
+/* 文字欄位紅框（必填錯誤） */
+.form-row input.error,
+.form-row textarea.error {
+  border: 2px solid red;
+  border-radius: 12px;
+  box-shadow: 0 0 4px rgba(255,0,0,0.5);
+}
+
 input[type="text"] {
   color: #9D9394;
-
 }
 
 /* textarea 單獨一行 */
@@ -569,6 +592,11 @@ button:hover {
 @media (max-width: 575.98px) { 
   .mice-contact-box {
     padding: 60px 0 ;
+  }
+
+  .mice-contact-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
   }
 
 }
