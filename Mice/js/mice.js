@@ -1,39 +1,93 @@
-// ----------------- 滑動導航 -----------------
+// ----------------- 滑動導航（不卡優化版） -----------------
 document.addEventListener("DOMContentLoaded", function () {
   const navItems = document.querySelectorAll(".scroll-tag .section");
   const sections = document.querySelectorAll("section");
 
-  if (navItems.length && sections.length) {
-    navItems.forEach((item, index) => {
-      if (index === 0) item.classList.add("active");
-      else item.classList.remove("active");
-    });
+  // 👉 等畫面穩定再啟動（關鍵）
+  setTimeout(initScrollNav, 100);
 
-    navItems.forEach((item, index) => {
-      item.addEventListener("click", () => {
-        if (sections[index]) {
-          sections[index].scrollIntoView({ behavior: "smooth" });
+  function initScrollNav() {
+    // 👉 自訂滑動動畫
+    function smoothScrollTo(targetY, duration = 800) {
+      const startY = window.scrollY;
+      const distance = targetY - startY;
+      let startTime = null;
+
+      function easeOutCubic(t) {
+        return 1 - Math.pow(1 - t, 3);
+      }
+
+      function animation(currentTime) {
+        if (!startTime) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const progress = Math.min(timeElapsed / duration, 1);
+        const ease = easeOutCubic(progress);
+
+        window.scrollTo(0, startY + distance * ease);
+
+        if (timeElapsed < duration) {
+          requestAnimationFrame(animation);
         }
+      }
 
-        // 點擊後更新 active
-        navItems.forEach((el) => el.classList.remove("active"));
-        item.classList.add("active");
+      requestAnimationFrame(animation);
+    }
+
+    if (navItems.length && sections.length) {
+      navItems.forEach((item, index) => {
+        item.classList.toggle("active", index === 0);
       });
-    });
 
-    window.addEventListener("scroll", () => {
-      let scrollPosition = window.scrollY;
-      sections.forEach((section, index) => {
-        if (!section) return;
-        if (
-          scrollPosition >= section.offsetTop - section.offsetHeight / 2 &&
-          scrollPosition < section.offsetTop + section.offsetHeight / 2
-        ) {
+      navItems.forEach((item, index) => {
+        item.addEventListener("click", () => {
+          const section = sections[index];
+          if (!section) return;
+
+          const h2 = section.querySelector("h2");
+
+          if (h2) {
+            const rect = h2.getBoundingClientRect();
+            const scrollTop = window.scrollY;
+
+            const targetY =
+              scrollTop +
+              rect.top -
+              window.innerHeight / 2 +
+              rect.height / 2;
+
+            smoothScrollTo(targetY, 800);
+          }
+
           navItems.forEach((el) => el.classList.remove("active"));
-          if (navItems[index]) navItems[index].classList.add("active");
+          item.classList.add("active");
+        });
+      });
+
+      // 👉 scroll 監聽（加 requestAnimationFrame 防卡）
+      let ticking = false;
+
+      window.addEventListener("scroll", () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            const scrollMiddle = window.scrollY + window.innerHeight / 2;
+
+            sections.forEach((section, index) => {
+              const top = section.offsetTop;
+              const bottom = top + section.offsetHeight;
+
+              if (scrollMiddle >= top && scrollMiddle < bottom) {
+                navItems.forEach((el) => el.classList.remove("active"));
+                if (navItems[index]) navItems[index].classList.add("active");
+              }
+            });
+
+            ticking = false;
+          });
+
+          ticking = true;
         }
       });
-    });
+    }
   }
 });
 
