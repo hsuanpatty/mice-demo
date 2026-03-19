@@ -10,6 +10,11 @@
     width: 100vw;
 }
 
+.d-block {
+  display: block;
+}
+
+
 section {
   scroll-margin-top: 120px;
 }
