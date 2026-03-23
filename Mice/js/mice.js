@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     item.classList.toggle("active", index === 0);
   });
 
-  let firstClickDone = false; // 標記第一次點擊
+  let firstClickDone = false;
 
   function smoothScrollTo(targetY, duration = 800) {
     const startY = window.scrollY || window.pageYOffset;
@@ -46,16 +46,14 @@ document.addEventListener("DOMContentLoaded", function () {
       const targetY = scrollTop + rect.top - window.innerHeight / 2 + rect.height / 2;
 
       if (!firstClickDone) {
-        // 第一次使用 native smooth，不卡
         section.scrollIntoView({ behavior: "smooth", block: "center" });
         firstClickDone = true;
       } else {
-        // 之後慢速滑動
         smoothScrollTo(targetY, 1000);
       }
 
       // 更新 active
-      navItems.forEach((el) => el.classList.remove("active"));
+      navItems.forEach(el => el.classList.remove("active"));
       item.classList.add("active");
     });
   });
@@ -66,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
     sections.forEach((section, index) => {
       if (!section) return;
       if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
-        navItems.forEach((el) => el.classList.remove("active"));
+        navItems.forEach(el => el.classList.remove("active"));
         navItems[index].classList.add("active");
       }
     });
@@ -76,7 +74,12 @@ document.addEventListener("DOMContentLoaded", function () {
 // ----------------- 自訂下拉選單 + 表單必填檢查 -----------------
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("miceForm");
+  if (!form) {
+    console.warn("找不到 #miceForm 表單，表單功能未啟用");
+    return;
+  }
 
+  // ===== tooltip 函式 =====
   function showTooltip(el, msg) {
     removeTooltip(el);
     const tip = document.createElement("div");
@@ -97,17 +100,19 @@ document.addEventListener("DOMContentLoaded", function () {
     const options = select.querySelector(".options");
     const input = select.parentElement.querySelector("input[type='hidden']");
 
+    if (!selected || !options || !input) return;
+
+    // 點擊選單
     selected.addEventListener("click", e => {
-      e.stopPropagation(); // 停止冒泡，避免全局 click 立即收起
+      e.stopPropagation();
       const isOpen = options.style.display === "block";
 
-      // 先收起其他選單
+      // 先關閉其他選單
       document.querySelectorAll(".custom-select .options").forEach(o => {
         o.style.display = "none";
         o.parentElement.classList.remove("open");
       });
 
-      // 切換自己
       options.style.display = isOpen ? "none" : "block";
       if (!isOpen) select.classList.add("open");
     });
@@ -126,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // 點擊其他地方收起所有選單
+  // 點擊空白關閉下拉選單
   document.addEventListener("click", () => {
     document.querySelectorAll(".custom-select .options").forEach(o => o.style.display = "none");
     document.querySelectorAll(".custom-select").forEach(select => select.classList.remove("open"));
@@ -136,29 +141,33 @@ document.addEventListener("DOMContentLoaded", function () {
   form.addEventListener("submit", e => {
     e.preventDefault();
     let valid = true;
+
+    // 清除舊錯誤
     document.querySelectorAll(".error").forEach(el => el.classList.remove("error"));
     document.querySelectorAll(".form-tooltip").forEach(el => el.remove());
 
+    // 驗證下拉選單
     const dropdowns = [
-      { name: "theme", msg: "請選擇項目" },
-      { name: "needs", msg: "請選擇需求" },
-      { name: "days", msg: "請選擇天數" }
+      { name: "theme", msg: "請選擇旅遊主題" },
+      { name: "needs", msg: "請選擇需求項目" },
+      { name: "days", msg: "請選擇預計天數" }
     ];
 
     dropdowns.forEach(d => {
-      const input = document.querySelector(`input[name="${d.name}"]`);
-      if (!input.value) {
-        const sel = input.parentElement.querySelector(".custom-select");
-        if (!["theme","needs","days"].includes(d.name)) sel.classList.add("error");
-        showTooltip(sel.querySelector(".selected"), d.msg);
+      const input = form.querySelector(`input[name="${d.name}"]`);
+      if (!input || !input.value) {
+        const sel = input?.parentElement.querySelector(".custom-select");
+        if (sel) sel.classList.add("error");
+        if (sel) showTooltip(sel.querySelector(".selected"), d.msg);
         valid = false;
       }
     });
 
-    const phone = document.querySelector('input[name="phone"]');
-    if (!phone.value.trim()) {
-      phone.classList.add("error");
-      showTooltip(phone, "請填寫有效的電話or手機號碼至少10位數");
+    // 驗證電話
+    const phone = form.querySelector('input[name="phone"]');
+    if (!phone || !phone.value.trim()) {
+      phone?.classList.add("error");
+      phone && showTooltip(phone, "請填寫有效的電話或手機號碼至少10位數");
       valid = false;
     } else if (!/^\d{10,}$/.test(phone.value)) {
       phone.classList.add("error");
@@ -166,10 +175,11 @@ document.addEventListener("DOMContentLoaded", function () {
       valid = false;
     }
 
-    const name = document.querySelector('input[name="name"]');
-    if (!name.value.trim()) {
-      name.classList.add("error");
-      showTooltip(name, "請填寫真實姓名");
+    // 驗證姓名
+    const name = form.querySelector('input[name="name"]');
+    if (!name || !name.value.trim()) {
+      name?.classList.add("error");
+      name && showTooltip(name, "請填寫真實姓名");
       valid = false;
     }
 
@@ -180,7 +190,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // ===== 輸入框輸入時清除紅框和 tooltip =====
-  document.querySelectorAll("input, textarea").forEach(el => {
+  form.querySelectorAll("input, textarea").forEach(el => {
     el.addEventListener("input", () => {
       el.classList.remove("error");
       removeTooltip(el);
