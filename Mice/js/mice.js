@@ -75,124 +75,113 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // ----------------- 自訂下拉選單 + 表單必填檢查 -----------------
 document.addEventListener("DOMContentLoaded", function () {
-  // ===== 自訂下拉選單 =====
-  document.querySelectorAll(".custom-select").forEach((select) => {
-    if (!select) return;
-
-    const selected = select.querySelector(".selected");
-    const options = select.querySelector(".options");
-    const input = select.parentElement
-      ? select.parentElement.querySelector('input[type="hidden"]')
-      : null;
-
-    if (!selected || !options || !input) {
-      console.warn("custom-select 元素不完整", select);
-      return;
-    }
-
-    // 點擊開關
-    selected.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const isOpen = options.style.display === "block";
-      document.querySelectorAll(".custom-select .options").forEach((opt) => {
-        opt.style.display = "none";
-      });
-      options.style.display = isOpen ? "none" : "block";
-
-      // 點選時移除紅框
-      selected.classList.remove("error");
-    });
-
-    // 點選選項
-    options.querySelectorAll("li").forEach((option) => {
-      if (!option) return;
-      option.addEventListener("click", (e) => {
-        e.stopPropagation();
-        selected.textContent = option.textContent;
-        input.value = option.dataset.value || "";
-        options.style.display = "none";
-
-        selected.classList.remove("error"); 
-        selected.classList.add("has-value"); 
-        selected.style.color = "#000"; 
-      });
-    });
-  });
-
-  // 點外面收合所有下拉
-  document.addEventListener("click", () => {
-    document.querySelectorAll(".custom-select .options").forEach((options) => {
-      options.style.display = "none";
-    });
-  });
-
-  // ===== 表單必填檢查 =====
   const form = document.getElementById("miceForm");
-  if (form) {
-    form.addEventListener("submit", function (e) {
-      let errorMsg = "";
 
-      // 下拉選單檢查
-      const selectFields = [
-        { input: document.querySelector('input[name="theme"]'), label: "旅遊主題" },
-        { input: document.querySelector('input[name="needs"]'), label: "需求項目" },
-        { input: document.querySelector('input[name="days"]'), label: "預計天數" }
-      ];
-
-      selectFields.forEach((field) => {
-        if (!field.input) {
-          console.warn(`找不到 ${field.label} 對應的 input`);
-          return;
-        }
-        if (!field.input.value || field.input.value === "請選擇") {
-          errorMsg += `請選擇【${field.label}】\n`;
-          const selectedDiv = field.input.previousElementSibling;
-          if (selectedDiv) {
-            selectedDiv.classList.add("error");
-            selectedDiv.style.color = "#000"; // 強調紅框內文字
-          }
-        } else {
-          if (field.input.previousElementSibling) {
-            field.input.previousElementSibling.classList.remove("error");
-          }
-        }
-      });
-
-      // 文字欄位必填
-      const textFields = [
-        { input: document.querySelector('input[placeholder="請填市內電話或手機"]'), label: "聯絡電話" },
-        { input: document.querySelector('input[placeholder="請填寫姓名"]'), label: "聯絡窗口" }
-      ];
-
-      textFields.forEach((field) => {
-        if (!field.input) {
-          console.warn(`找不到 ${field.label} 對應的 input`);
-          return;
-        }
-        if (!field.input.value.trim()) {
-          errorMsg += `請填寫【${field.label}】\n`;
-          field.input.classList.add("error");
-        } else {
-          field.input.classList.remove("error");
-        }
-      });
-
-      if (errorMsg) {
-        e.preventDefault();
-        alert(errorMsg);
-
-        // 自動滾動到第一個紅框欄位
-        const firstError = document.querySelector(".error");
-        if (firstError) firstError.scrollIntoView({ behavior: "smooth", block: "center" });
-      }
-    });
+  // ===== tooltip 顯示 / 隱藏 =====
+  function showTooltip(el, msg) {
+    removeTooltip(el);
+    const tip = document.createElement("div");
+    tip.className = "form-tooltip";
+    tip.textContent = msg;
+    el.parentElement.appendChild(tip);
+    setTimeout(() => tip.classList.add("show"), 10);
   }
 
-  // 文字欄位輸入時移除紅框
-  document.querySelectorAll(".form-row input, .form-row textarea").forEach((el) => {
-    if (!el) return;
+  function removeTooltip(el) {
+    const old = el.parentElement.querySelector(".form-tooltip");
+    if (old) old.remove();
+  }
+
+  // ===== 自訂下拉選單 =====
+  document.querySelectorAll(".custom-select").forEach(select => {
+    const selected = select.querySelector(".selected");
+    const options = select.querySelector(".options");
+    const input = select.parentElement.querySelector("input[type='hidden']");
+
+    // 點擊 selected 開關選單
+    selected.addEventListener("click", e => {
+      e.stopPropagation();
+      document.querySelectorAll(".custom-select .options").forEach(o => {
+        if (o !== options) o.style.display = "none";
+      });
+      options.style.display = options.style.display === "block" ? "none" : "block";
+    });
+
+    // 點擊選項
+    options.querySelectorAll("li").forEach(li => {
+      li.addEventListener("click", e => {
+        e.stopPropagation();
+        selected.textContent = li.textContent;
+        input.value = li.dataset.value;
+        options.style.display = "none";
+        select.classList.remove("error");
+        removeTooltip(selected);
+      });
+    });
+  });
+
+  // 點擊其他地方收起所有選單
+  document.addEventListener("click", () => {
+    document.querySelectorAll(".custom-select .options").forEach(o => o.style.display = "none");
+  });
+
+  // ===== 表單驗證 =====
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    let valid = true;
+
+    document.querySelectorAll(".error").forEach(el => el.classList.remove("error"));
+    document.querySelectorAll(".form-tooltip").forEach(el => el.remove());
+
+    // 下拉驗證
+    const dropdowns = [
+      { name: "theme", msg: "請選擇項目" },
+      { name: "needs", msg: "請選擇需求" },
+      { name: "days", msg: "請選擇天數" }
+    ];
+
+    dropdowns.forEach(d => {
+      const input = document.querySelector(`input[name="${d.name}"]`);
+      if (!input.value) {
+        const sel = input.parentElement.querySelector(".custom-select");
+        // 指定下拉不加紅框，只顯示 tooltip
+        if (!["theme","needs","days"].includes(d.name)) sel.classList.add("error");
+        showTooltip(sel.querySelector(".selected"), d.msg);
+        valid = false;
+      }
+    });
+
+    // 電話驗證
+    const phone = document.querySelector('input[name="phone"]');
+    if (!phone.value.trim()) {
+      phone.classList.add("error");
+      showTooltip(phone, "請填寫有效的電話or手機號碼至少8位數");
+      valid = false;
+    } else if (!/^\d{8,}$/.test(phone.value)) {
+      phone.classList.add("error");
+      showTooltip(phone, "至少8位數");
+      valid = false;
+    }
+
+    // 姓名驗證
+    const name = document.querySelector('input[name="name"]');
+    if (!name.value.trim()) {
+      name.classList.add("error");
+      showTooltip(name, "請填寫姓名");
+      valid = false;
+    }
+
+    if (valid) {
+      alert("送出成功！");
+      form.submit();
+    }
+  });
+
+  // ===== 輸入框輸入時清除紅框和 tooltip =====
+  document.querySelectorAll("input, textarea").forEach(el => {
     el.addEventListener("input", () => {
-      if (el.value.trim() !== "") el.classList.remove("error");
+      el.classList.remove("error");
+      removeTooltip(el);
     });
   });
 });
