@@ -6,7 +6,6 @@
   display: block;
 }
 
-
 /* ====================== */
 /* container 與 row 基本設定 */
 /* ====================== */
@@ -197,13 +196,13 @@
   max-width: 900px;
   margin: 50px auto;
 }
-
 .form-row {
   display: grid;
   grid-template-columns: 120px 1fr 160px 1fr;
   align-items: center;
   gap: 15px 20px;
   margin-bottom: 20px;
+  position: relative;
 }
 
 .form-row > label:nth-of-type(2) {
@@ -211,6 +210,9 @@
   text-align: left;
   
 }
+
+
+.form-row.full { grid-template-columns: 120px 1fr; }
 
 .required {
   font-size: 30px;
@@ -220,7 +222,6 @@
   top: -3px; 
 }
 
-/* label */
 label {
   text-align: left;
   font-size: 20px;
@@ -230,7 +231,6 @@ label {
   white-space: nowrap;
 }
 
-/* input / select / textarea */
 input,
 textarea {
   padding: 10px;
@@ -242,100 +242,10 @@ textarea {
   box-sizing: border-box;
 }
 
-/* 自訂下拉選單樣式 */
-/* 自訂下拉選單容器 */
-.custom-select-wrapper {
-  position: relative;
-  max-width: 100%;
-}
-
-.custom-select-wrapper label {
-  font-size: 16px;
-  font-weight: 500;
-  display: block;
-  margin-bottom: 5px;
-}
-
-/* 自訂下拉選單 */
-.custom-select {
-  position: relative;
-  background: #fff;
-  border-radius: 12px;
-  border: 1px solid #9D9394;
-  cursor: pointer;
-  padding: 10px 40px 10px 15px; /* 右邊留箭頭空間 */
-  transition: border 0.3s, box-shadow 0.3s;
-}
-
-/* 箭頭 */
-.custom-select::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: 15px;
-  transform: translateY(-50%);
-  width: 12px;
-  height: 12px;
-  background-image: url('../images/mice/miceform-arrow.png');
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-/* 初始文字 */
-.custom-select .selected {
-  color: #9D9394; /* 初始灰色文字 */
-  font-size: 16px;
-  text-align: left;
-}
-
-/* 已選擇值 */
-.custom-select .selected.has-value {
-  color: #000; /* 選擇後文字黑色 */
-}
-
-/* 下拉選單紅框（必填錯誤） */
-.custom-select .selected.error {
-  border: 2px solid red;
-  border-radius: 12px;
-  box-shadow: 0 0 4px rgba(255,0,0,0.5);
-  color: #000;
-}
-
-/* 下拉選單選項 */
-.custom-select .options {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: #fff;
-  border: 1px solid #9D9394;
-  border-radius: 12px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  margin-top: 5px;
-  display: none;
-  z-index: 999;
-  list-style: none;
-  padding: 5px 0;
-  overflow: hidden;
-}
-
-.custom-select .options li {
-  text-align: left;
-  padding: 10px 15px;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.custom-select .options li:hover {
-  background: #F7E8E8;
-}
-
-/* 文字欄位紅框（必填錯誤） */
-.form-row input.error,
-.form-row textarea.error {
-  border: 2px solid red;
-  border-radius: 12px;
-  box-shadow: 0 0 4px rgba(255,0,0,0.5);
+input.error,
+textarea.error {
+  border: 1px solid #ff4d4f;
+  box-shadow: 0 0 4px rgba(255,77,79,0.5);
 }
 
 input[type="text"] {
@@ -352,13 +262,136 @@ textarea {
   resize: none;
 }
 
-/* 按鈕 */
-.submit-wrap {
-  text-align: center;
-  margin-top: 30px;
+/* tooltip */
+
+.input-wrapper,
+.custom-select-wrapper {
+  position: relative; /* tooltip 相對定位 */
 }
 
-button {
+
+.form-tooltip {
+  position: absolute;
+  top: 100%; /* 從上面改成下面 */
+  left: 0;
+  margin-top: 5px; /* 距離輸入框的間距 */
+  background: #ff4d4f;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(-5px); /* 動畫初始位置往上一點 */
+  transition: 0.3s;
+  z-index: 99;
+}
+
+.form-tooltip::after {
+  content: "";
+  position: absolute;
+  top: -5px; /* 箭頭在上方 */
+  left: 15px;
+  width: 10px;
+  height: 10px;
+  background: #ff4d4f;
+  transform: rotate(45deg);
+}
+
+.form-tooltip.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 所有表單輸入框、文字區域都不要邊框 */
+input[type="text"],
+input[type="email"],
+textarea {
+  outline: none;      /* 點擊時不出現藍色框 */
+}
+
+/* 如果需要錯誤提示，可搭配 JS 加 .error class 改紅邊 */
+input.error,
+textarea.error {
+  border: 1px solid red;
+}
+
+/* ====================== */
+/* 自訂下拉選單 */
+/* ====================== */
+.custom-select-wrapper { position: relative; max-width: 100%; }
+.custom-select-wrapper label { font-size: 16px; font-weight: 500; display: block; margin-bottom: 5px; }
+
+.custom-select {
+  position: relative;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #9D9394;
+  cursor: pointer;
+  padding: 10px 40px 10px 15px;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+.custom-select::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  background-image: url('../images/mice/miceform-arrow.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.custom-select .selected {
+  color: #9D9394;
+  font-size: 16px;
+  text-align: left;
+}
+.custom-select .selected.has-value { color: #000; }
+
+.custom-select .selected.error {
+  border: 2px solid #ff4d4f;
+  box-shadow: 0 0 4px rgba(255,77,79,0.5);
+  padding: 10px 40px 10px 15px;
+  color: #000;
+}
+
+.custom-select .options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #9D9394;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  margin-top: 5px;
+  display: none;
+  z-index: 998;
+  list-style: none;
+  padding: 5px 0;
+  overflow: hidden;
+}
+.custom-select .options li {
+  text-align: left;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.custom-select .options li:hover { background: #F7E8E8; }
+
+.custom-select.error {
+  border: 1px solid #ff4d4f;
+  border-radius: 12px;
+  box-shadow: 0 0 4px rgba(255,0,0,0.5);
+}
+
+/* ====================== */
+/* 按鈕樣式 */
+/* ====================== */
+.submit-wrap { text-align: center; margin-top: 30px; }
+.submit-wrap button {
   background-color: #a40011;
   color: white;
   border: none;
@@ -367,10 +400,7 @@ button {
   font-size: 18px;
   cursor: pointer;
 }
-
-button:hover {
-  background-color: #80000d;
-}
+.submit-wrap button:hover { background-color: #80000d; }
 
 @media (max-width: 991px) {
   .form-row {
