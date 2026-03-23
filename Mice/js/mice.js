@@ -158,11 +158,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const phone = document.querySelector('input[name="phone"]');
     if (!phone.value.trim()) {
       phone.classList.add("error");
-      showTooltip(phone, "請填寫有效的電話or手機號碼至少8位數");
+      showTooltip(phone, "請填寫有效的電話or手機號碼至少10位數");
       valid = false;
     } else if (!/^\d{8,}$/.test(phone.value)) {
       phone.classList.add("error");
-      showTooltip(phone, "至少8位數");
+      showTooltip(phone, "至少10位數");
       valid = false;
     }
 
