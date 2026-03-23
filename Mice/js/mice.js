@@ -169,7 +169,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const name = document.querySelector('input[name="name"]');
     if (!name.value.trim()) {
       name.classList.add("error");
-      showTooltip(name, "請填寫姓名");
+      showTooltip(name, "請填寫真實姓名");
       valid = false;
     }
 
