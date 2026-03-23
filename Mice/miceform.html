@@ -23,7 +23,7 @@
     <link rel="stylesheet" type="text/css" href="./css/fonts.css" />
     <link rel="stylesheet" type="text/css" href="./css/all.new.min.css" />
 
-    <!-- 2026/03/04 新增 -->
+    <!-- 2026/03/19 新增 -->
     <link rel="stylesheet" href="./css/mice_artisan.css" />
   </head>
   <body>
@@ -89,9 +89,9 @@
         <!-- Pushy Menu -->
         <div class="pushy pushy-right" data-focus="#first-link">
           <div class="pushy-content">
-            <span class="pushy-close"> <img src="./images/20_pushy_close.svg" alt="" /></span>
+            <span class="pushy-close"> <img src="/images/20_pushy_close.svg" alt="" /></span>
             <ul>
-              <li class="pushy-title">
+              <li class="pushy-title" style="display: none">
                 <a href="javascript:;">國內旅遊</a>
               </li>
 
@@ -243,7 +243,7 @@
                 <button type="button">日本</button>
                 <ul>
                   <li class="pushy-link"><a href="/exh/Exhibition.aspx?area_no=35" class="exh-title">日本全覽</a></li>
-                  <li class="pushy-link"><a href="/exh/ExhMini.aspx?area_no=35&amp;no=153">北海道(滑雪．CLUB MED)</a></li>
+                  <li class="pushy-link"><a href="/exh/ExhMini.aspx?area_no=35&amp;no=153">北海道</a></li>
                   <li class="pushy-link"><a href="/exh/ExhMini.aspx?area_no=35&amp;no=154">東北(奧入瀨溪．弘前城．仙台)</a></li>
                   <li class="pushy-link"><a href="/exh/ExhMini.aspx?area_no=35&amp;no=155">東京(富士山．迪士尼．輕井澤)</a></li>
                   <li class="pushy-link"><a href="/exh/ExhMini.aspx?area_no=35&amp;no=157">北陸(名古屋．立山．白川鄉)</a></li>
@@ -258,9 +258,7 @@
                 <ul>
                   <li class="pushy-link"><a href="/exh/Exhibition.aspx?area_no=37" class="exh-title">中國大陸全覽</a></li>
                   <li class="pushy-link"><a href="/exh/ExhMini.aspx?area_no=37&amp;no=95">鐵道專區(高端專列包車.西藏青藏鐵路)</a></li>
-                  <li class="pushy-link">
-                    <a href="/exh/ExhMini.aspx?area_no=37&amp;no=16">華東(上蘇杭‧寧波‧南京‧無錫‧溫州‧黃山‧千島湖‧九華山‧江西南昌)</a>
-                  </li>
+                  <li class="pushy-link"><a href="/exh/ExhMini.aspx?area_no=37&amp;no=16">華東(上蘇杭‧寧波‧南京‧無錫‧溫州‧黃山‧千島湖‧九華山‧江西南昌)</a></li>
                   <li class="pushy-link"><a href="/exh/ExhMini.aspx?area_no=37&amp;no=19">華南(桂林南寧‧海南島‧福建武夷山‧金廈小三通)</a></li>
                   <li class="pushy-link"><a href="/exh/ExhMini.aspx?area_no=37&amp;no=89">華西(四川.重慶.貴州.雲南.湖南)</a></li>
                   <li class="pushy-link"><a href="/exh/ExhMini.aspx?area_no=37&amp;no=15">華北(山東青島‧北京天津‧山西太原‧內蒙古草原)</a></li>
@@ -307,8 +305,10 @@
                   <li class="pushy-link"><a href="/exh/ExhMini.aspx?area_no=42&amp;no=129">亞馬遜．生態探索</a></li>
                 </ul>
               </li>
+
               <li class="pushy-title pushy-mobileShow"><a href="/Member2.aspx">團員專區</a></li>
               <li class="pushy-title pushy-mobileShow"><a href="/olapply/mlogin.aspx">會員專區</a></li>
+
               <li class="pushy-title pushy-mobileShow">
                 <a href="https://b2b.artisan.com.tw/" target="_blank">同業專區</a>
               </li>
@@ -729,9 +729,7 @@
           <h3>提供企業旅遊全方位服務，為你打造專屬旅程</h3>
         </div>
       </div>
-
       <!-- 相關需求 -->
-
       <div class="miceform-box">
         <div class="container">
           <h2>歡迎填寫你的旅遊相關需求</h2>
@@ -743,17 +741,17 @@
                 <label>旅遊主題<span class="required">*</span></label>
                 <div class="custom-select-wrapper">
                   <div class="custom-select">
-                    <div class="selected">請選擇</div>
+                    <div class="selected border-0">請選擇</div>
                     <ul class="options">
                       <li data-value="員工旅遊">員工旅遊</li>
                       <li data-value="主題旅遊">主題旅遊</li>
                       <li data-value="獎勵旅遊">獎勵旅遊</li>
                       <li data-value="客製/特殊行程">客製/特殊行程</li>
                       <li data-value="商務會展">商務會展</li>
-                      <li data-value="其它">其它(開放填寫)</li>
+                      <li data-value="其它">其它(請於其他需求欄位說明)</li>
                     </ul>
                   </div>
-                  <input type="hidden" name="theme" required />
+                  <input type="hidden" name="theme" />
                 </div>
 
                 <label>預算</label>
@@ -764,25 +762,27 @@
                 <label>需求項目<span class="required">*</span></label>
                 <div class="custom-select-wrapper">
                   <div class="custom-select">
-                    <div class="selected">請選擇</div>
+                    <div class="selected border-0">請選擇</div>
                     <ul class="options">
                       <li data-value="國外">國外</li>
                       <li data-value="國內">國內</li>
                       <li data-value="其他">其他</li>
                     </ul>
                   </div>
-                  <input type="hidden" name="needs" required />
+                  <input type="hidden" name="needs" />
                 </div>
 
                 <label>聯絡電話<span class="required">*</span></label>
-                <input type="text" placeholder="請填市內電話或手機" required />
+                <div class="input-wrapper">
+                  <input type="text" name="phone" placeholder="請填市內電話或手機" />
+                </div>
               </div>
 
               <div class="form-row">
                 <label>預計天數<span class="required">*</span></label>
                 <div class="custom-select-wrapper">
                   <div class="custom-select">
-                    <div class="selected">請選擇</div>
+                    <div class="selected border-0">請選擇</div>
                     <ul class="options">
                       <li data-value="1-5">1-5天</li>
                       <li data-value="6-10">6-10天</li>
@@ -790,11 +790,12 @@
                       <li data-value="15+">15天以上</li>
                     </ul>
                   </div>
-                  <input type="hidden" name="days" required />
+                  <input type="hidden" name="days" />
                 </div>
-
                 <label>聯絡窗口<span class="required">*</span></label>
-                <input type="text" placeholder="請填寫姓名" required />
+                <div class="input-wrapper">
+                  <input type="text" name="name" placeholder="請填寫姓名" />
+                </div>
               </div>
 
               <div class="form-row">
@@ -818,35 +819,33 @@
         </div>
       </div>
       <!-- 聯絡我們 -->
-      <section id="sec2" class="sec2 person-bg">
+      <div class="mice-contact-box">
         <div class="container">
-          <div class="mice-contact-box">
-            <div class="mice-contact-grid">
-              <article class="person-card">
-                <div class="person">
-                  <h4>資深專案經理</h4>
-                  <h2>魏澤民 Wayne</h2>
-                </div>
-                <div class="person-card-content">
-                  <p>TEL：(02)2507-5418</p>
-                  <p>0919-201954</p>
-                  <p>LINE ID：WAYNEWEI0716</p>
-                </div>
-              </article>
-              <article class="person-card">
-                <div class="person">
-                  <h4>商務會展</h4>
-                  <h2>曾千慧 / 周芝榆</h2>
-                </div>
-                <div class="person-card-content">
-                  <p>TEL：(02)2507-5418</p>
-                  <p>FAX：(02)2504-6199</p>
-                </div>
-              </article>
-            </div>
+          <div class="mice-contact-grid">
+            <article class="person-card">
+              <div class="person">
+                <h4>資深專案經理</h4>
+                <h2>魏澤民 Wayne</h2>
+              </div>
+              <div class="person-card-content">
+                <p>TEL：(02)2507-5418</p>
+                <p>0919-201954</p>
+                <p>LINE ID：WAYNEWEI0716</p>
+              </div>
+            </article>
+            <article class="person-card">
+              <div class="person">
+                <h4>商務會展</h4>
+                <h2>曾千慧 / 周芝榆</h2>
+              </div>
+              <div class="person-card-content">
+                <p>TEL：(02)2507-5418</p>
+                <p>FAX：(02)2504-6199</p>
+              </div>
+            </article>
           </div>
         </div>
-      </section>
+      </div>
     </div>
     <!-- footer -->
     <footer id="footer">
