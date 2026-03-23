@@ -231,6 +231,13 @@ label {
   white-space: nowrap;
 }
 
+.form-row.full label {
+  margin-bottom: 4px; /* label 與 textarea 之間間距，可調整 */
+  align-self: flex-start; /* 靠左上對齊 */
+  font-weight: 500;       /* 可選：字體粗細 */
+}
+
+
 input,
 textarea {
   padding: 10px;
@@ -343,6 +350,15 @@ textarea.error {
   background-repeat: no-repeat;
   background-size: contain;
 }
+
+/* 選單打開時箭頭向上 */
+.custom-select.open::after {
+  content: "";      /* 或用 transform: rotate(180deg); */
+ background-image: url('../images/mice/miceform-arrow2.png');
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 .custom-select .selected {
   color: #9D9394;
   font-size: 16px;
