@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", function () {
       phone.classList.add("error");
       showTooltip(phone, "請填寫有效的電話or手機號碼至少10位數");
       valid = false;
-    } else if (!/^\d{8,}$/.test(phone.value)) {
+    } else if (!/^\d{10,}$/.test(phone.value)) {
       phone.classList.add("error");
       showTooltip(phone, "至少10位數");
       valid = false;
