@@ -354,7 +354,7 @@ textarea.error {
 /* 選單打開時箭頭向上 */
 .custom-select.open::after {
   content: "";      /* 或用 transform: rotate(180deg); */
- background-image: url('../images/mice/miceform-arrow2.png');
+  background-image: url('../images/mice/miceform-arrow2.png');
   top: 50%;
   transform: translateY(-50%);
 }
