@@ -323,7 +323,7 @@ main.scroll-target {
 
 /* 卡片內容 */
 .card-content {
-  padding: 25px 20px 20px;
+  padding: 20px;
   flex: 1;
   flex-direction: column;
   justify-content: space-between;
@@ -339,9 +339,11 @@ main.scroll-target {
 
 .svcs-description {
   font-size: 16px;
-  color: #403C3D;
+  font-weight: 500;
   line-height: 1.5;
-  margin-bottom: 20px;
+  letter-spacing: 0.05rem;
+  color: #403C3D;
+  margin-bottom: 10px;
   text-align: justify;    
 }
 
