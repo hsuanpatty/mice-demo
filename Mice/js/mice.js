@@ -38,6 +38,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // 點擊 nav
   navItems.forEach((item, index) => {
     item.addEventListener("click", () => {
+      // 如果此項目內有連結，則不執行滑動導航
+      if (item.querySelector("a")) return;
+
       const section = sections[index];
       if (!section) return;
 
@@ -103,19 +106,20 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!selected || !options || !input) return;
 
     // 點擊選單
-    selected.addEventListener("click", e => {
-      e.stopPropagation();
-      const isOpen = options.style.display === "block";
+  select.addEventListener("click", e => {
+  e.stopPropagation();
 
-      // 先關閉其他選單
-      document.querySelectorAll(".custom-select .options").forEach(o => {
-        o.style.display = "none";
-        o.parentElement.classList.remove("open");
-      });
+  const isOpen = options.style.display === "block";
 
-      options.style.display = isOpen ? "none" : "block";
-      if (!isOpen) select.classList.add("open");
-    });
+  // 關閉其他選單
+  document.querySelectorAll(".custom-select .options").forEach(o => {
+    o.style.display = "none";
+    o.parentElement.classList.remove("open");
+  });
+
+  options.style.display = isOpen ? "none" : "block";
+  select.classList.toggle("open", !isOpen);
+});
 
     // 點擊選項
     options.querySelectorAll("li").forEach(li => {
