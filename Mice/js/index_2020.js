@@ -1,22 +1,33 @@
-﻿$(document).ready(function() {
+$(document).ready(function() {
   $('#Bcontent1').css("display", "block");
     $('#Bcontent2').css("display", "none");
     $('#Bcontent3').css("display", "none");
   //$('.tablinksc').eq(0).addClass("active");
   // 網頁go top
-  $("#gotop").click(function() {
-    $("html,body").animate({
-      scrollTop: 0
-    }, 500);
-  });
-  $(window).scroll(function() {
-    if ($(this).scrollTop() > 300) {
-      $('#gotop').fadeIn("fast");
-    } else {
-      $('#gotop').stop().fadeOut("fast");
-    }
-  });
+$(function () {
 
+    // 手機版：點擊展開 / 收合
+    $("#menuToggle").on("click", function () {
+        if ($(window).width() <= 767) {
+            $(".floating-menu").toggleClass("active");
+        }
+    });
+
+    // 回到頂部
+    $("#gotopBtn").on("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        $("html, body").stop(true, true);
+
+        requestAnimationFrame(function () {
+            $("html, body").animate({
+                scrollTop: 0
+            }, 500);
+        });
+    });
+
+});
   // banner-slider
   $('#banner-owl-carousel').owlCarousel({
     animateOut: 'fadeOut',
@@ -88,6 +99,18 @@
 
   // Taiwan
   $(".Taiwan-tab").simpleTab({
+    defaultSkin: true,
+    fadeEffect: true
+  });
+
+    // japanSelect
+  $(".japanSelect-tab").simpleTab({
+     defaultSkin: true,
+    fadeEffect: true
+  });
+
+    // europestop
+  $(".europetop-tab").simpleTab({
     defaultSkin: true,
     fadeEffect: true
   });
@@ -174,7 +197,7 @@
 
 
   // index-link
-    $('#indexLink-owl-carousel').owlCarousel({
+       $('#indexLink-owl-carousel').owlCarousel({
     nav: true,
     responsiveClass: true,
     loop: false,
@@ -183,7 +206,7 @@
     //        autoplay: true,
     autoplayTimeout: 5000,
     dots: false,
-    navText: ["<img src='https://www.artisan.com.tw/images/20_back.svg'>", "<img src='https://www.artisan.com.tw/images/20_next.svg'>"],
+    navText: ["<img src='images/20_back.svg'>", "<img src='images/20_next.svg'>"],
     responsive: {
       0: {
         items: 2
@@ -203,7 +226,7 @@
         items: 4
       },
       1200: {
-        items: 6,
+        items: 5,
         autoplay: false,
       }
 
