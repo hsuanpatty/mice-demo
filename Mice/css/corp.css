@@ -364,7 +364,7 @@ nav.corp-nav.menu-height .section a {
   background: transparent;
   border: none;
   border-radius: inherit;
-  transition: all 0.5s;
+  /* transition: all 0.5s; */
 }
 
 /* NAV 滑鼠移過及 active 狀態 */
